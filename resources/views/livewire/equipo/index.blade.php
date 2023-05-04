@@ -5,7 +5,7 @@
     <button type="button" class="btn btn-primary m-4" data-bs-toggle="modal" data-bs-target="#equipoModal">
         Agregar Equipo
     </button>
-    <input type="search" wire:mode="search" class="form-control mb-4" placeholder="Buscar">
+    <input type="search" wire:model="search" class="form-control mb-4" placeholder="Buscar">
     @if(session()->has('message'))
         <h5 class="alert alert-success">{{session("message")}}</h5>
     @endif

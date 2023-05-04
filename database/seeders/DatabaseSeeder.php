@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@test.cl',
             'password' => Hash::make(12345678),
         ]);
+        $this->call(Roleseeder::class);
     }
 }
