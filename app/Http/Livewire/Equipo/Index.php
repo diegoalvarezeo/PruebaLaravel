@@ -11,6 +11,7 @@ class Index extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     public $nombre, $descripcion, $precio, $equipoID;
+    public $search = '';
 
     protected function rules()
     {
@@ -70,7 +71,7 @@ class Index extends Component
     public function destruirEquipo(){
         EquiposModel::find($this->equipoID)->delete();
         session()->flash("message","Equipo eliminado exitosamente");
-        $this->dispatchBrowserEvent("close-modal");
+        $this->dispatchBrowserEvent("close-model");
     }
 
     public function closeModal(){
@@ -83,7 +84,9 @@ class Index extends Component
     }
     public function render()
     {
-        $equipos = EquiposModel::get()->toQuery()->paginate(5);;
+        $search = $this->search ?: '';
+        $equipos = EquiposModel::where('nombre', 'like', '%'.$search.'%')->paginate(5);
+
 
         return view('livewire.equipo.index',["equipos"=>$equipos]);
     }

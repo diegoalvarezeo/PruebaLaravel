@@ -15,6 +15,7 @@
     window.addEventListener('close-model', event => {
         $("#equipoModal").modal('hide');
         $("#updateequipoModal").modal('hide');
+        $("#deleteequipoModal").modal('hide');
 
     })
     </script>
