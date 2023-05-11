@@ -1,23 +1,18 @@
-@extends('layouts.baseMenu')
-{{-- @section('title')
-
-@endsection --}}
-
-@section("content")
-<div class="container">
+@extends('layouts.dashboardPrueba')
+@section('content')
     <livewire:equipo.index>
+    @endsection
+    @section('js')
+        <script>
+            /* Eventos form y notificaciones */
+            window.addEventListener('close-model', event => {
+                $("#equipoModal").modal('hide');
+                $("#updateequipoModal").modal('hide');
+                $("#deleteequipoModal").modal('hide');
 
-
-
-@endsection
-@section('scripts')
-<script>
-    window.addEventListener('close-model', event => {
-        $("#equipoModal").modal('hide');
-        $("#updateequipoModal").modal('hide');
-        $("#deleteequipoModal").modal('hide');
-
-    })
-    </script>
-
+            });
+            window.addEventListener('alert', event => {
+                toastr.success(event.detail.message);
+            })
+        </script>
 @endsection

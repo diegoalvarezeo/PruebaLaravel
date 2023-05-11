@@ -1,6 +1,11 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\ImageController;
+use App\Http\Controllers\EquiposController;
+use App\Http\Controllers\PaisController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +25,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-/* Route::get('/ejemplo', function () {
-    return view('nuevo');
-}); */
 
-Route::get('/ejemplo', [App\Http\Controllers\HomeController::class, 'baseDashboard'])->name('ejemplo');
-
+/* Rutas proyecto */
+Route::get('/equipos', [App\Http\Controllers\EquiposController::class, 'index'])->name('ejemplo');
+Route::get('/imagen', [App\Http\Controllers\ImageController::class, 'index'])->name('imagen');
+Route::get('/dinamico', [App\Http\Controllers\PaisController::class, 'index'])->name('dinamico');
