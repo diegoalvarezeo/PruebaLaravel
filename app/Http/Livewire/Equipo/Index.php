@@ -105,6 +105,7 @@ class Index  extends Component
     /* Exportar */
     public function export()
     {
+        /* Exportar */
         dd("export");
     }
     public function render()
